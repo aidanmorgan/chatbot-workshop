@@ -1,0 +1,25 @@
+[
+	{
+		"canonicalForm": "Death by Good Intentions",
+		"list": [
+			"Good Intentions",
+			"Death by"
+		]
+	},
+
+	{
+		"canonicalForm": "GraphQL - A query language to empower your API consumers",
+		"list": [
+			"GraphQL",
+			"Query Language"
+		]
+	},
+
+	{
+		"canonicalForm": "Mobile App Test Automation: Let's look into the future",
+		"list": [
+			"Mobile App",
+			"Test Automation"
+		]
+	}
+]

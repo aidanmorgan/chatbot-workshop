@@ -1,0 +1,1 @@
+autorest --csharp -Input http://localhost:2391/swagger/v1/swagger.json -OutputDirectory Generated --namespace DDDPerth.Services.Bindings
