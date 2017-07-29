@@ -1,0 +1,1 @@
+autorest --csharp -Input http://dddperthbot-services.azurewebsites.net/swagger/v1/swagger.json -OutputDirectory Generated --namespace DDDPerth.Services.Bindings

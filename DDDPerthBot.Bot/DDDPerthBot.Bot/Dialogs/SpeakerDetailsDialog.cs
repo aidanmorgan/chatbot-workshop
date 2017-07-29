@@ -32,32 +32,33 @@ namespace DDDPerthBot.Bot.Dialogs
             {
                 var details = await _apiFactory.CreateApi().ApiSpeakersQGetAsync(_searchTerm);
 
-                if (details.Count == 0)
+                switch (details.Count)
                 {
-                    await context.SayAsync("I couldn't find a Speaker with the name you're looking for.");
-                    context.Done<object>(null);
-                }
-                else if (details.Count == 1)
-                {
-                    var message = context.MakeMessage();
+                    case 0:
+                        await context.SayAsync("I couldn't find a Speaker with the name you're looking for.");
+                        context.Done<object>(null);
+                        break;
 
-                    var herocard = new HeroCard()
-                    {
-                        Title = details[0].Name,
-                        Text = details[0].Bio
-                    };
+                    case 1:
+                        var message = context.MakeMessage();
 
-                    message.Attachments.Add(herocard.ToAttachment());
+                        var herocard = new HeroCard()
+                        {
+                            Title = details[0].Name,
+                            Text = details[0].Bio
+                        };
 
-                    await context.PostAsync(message);
-                    context.Done<IMessageActivity>(null);
-                    
-                }
-                else
-                {
-                    var carousel = CreateCarousel(context, details);
-                    await context.PostAsync(carousel);
-                    context.Wait(MessageReceivedAsync);
+                        message.Attachments.Add(herocard.ToAttachment());
+
+                        await context.PostAsync(message);
+                        context.Done<IMessageActivity>(null);
+                        break;
+
+                    default:
+                        var carousel = CreateCarousel(context, details);
+                        await context.PostAsync(carousel);
+                        context.Wait(MessageReceivedAsync);
+                        break;
                 }
             }
             catch (HttpRequestException x)

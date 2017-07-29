@@ -21,11 +21,12 @@ namespace DDDPerth.Services.Bindings.Models
         /// <summary>
         /// Initializes a new instance of the Speaker class.
         /// </summary>
-        public Speaker(Guid? id = default(Guid?), string name = default(string), string bio = default(string))
+        public Speaker(Guid? id = default(Guid?), string name = default(string), string bio = default(string), string twitter = default(string))
         {
             Id = id;
             Name = name;
             Bio = bio;
+            Twitter = twitter;
         }
 
         /// <summary>
@@ -42,6 +43,11 @@ namespace DDDPerth.Services.Bindings.Models
         /// </summary>
         [JsonProperty(PropertyName = "bio")]
         public string Bio { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "twitter")]
+        public string Twitter { get; set; }
 
     }
 }
