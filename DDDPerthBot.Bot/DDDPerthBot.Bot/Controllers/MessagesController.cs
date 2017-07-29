@@ -5,6 +5,8 @@ using System.Web.Http;
 using Autofac;
 using DDDPerth.Services.Bindings;
 using DDDPerthBot.Bot.DependencyInjection;
+using DDDPerthBot.Bot.Services;
+using DDDPerthBot.QnAMaker;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
@@ -14,10 +16,14 @@ namespace DDDPerthBot.Bot.Controllers
     public class MessagesController : ApiController
     {
         private readonly IBotApiFactory _scope;
+        private readonly IQnAMakerService _qnaMakerService;
+        private readonly IChatFragmentService _chatFragmentService;
 
-        public MessagesController(IBotApiFactory scope)
+        public MessagesController(IBotApiFactory scope, IQnAMakerService qnaMakerService, IChatFragmentService chatFragmentService)
         {
             _scope = scope;
+            _qnaMakerService = qnaMakerService;
+            _chatFragmentService = chatFragmentService;
         }
 
         /// <summary>
@@ -28,7 +34,7 @@ namespace DDDPerthBot.Bot.Controllers
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new Dialogs.ConferenceRootDialog(_scope));
+                await Conversation.SendAsync(activity, () => new Dialogs.ConferenceRootDialog(_scope, _qnaMakerService, _chatFragmentService));
             }
             else
             {

@@ -42,6 +42,7 @@ namespace TravelAgentBot
         }
     }
 
+    [Serializable]
     public class LocationTimeDialog : IDialog<LocationAndTime>
     {
         private readonly TravelDirection _travelDirection;
@@ -134,6 +135,7 @@ namespace TravelAgentBot
         Destination
     }
 
+    [Serializable]
     public class LocationAndTime
     {
         public string Location { get; set; }

@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.htm" />
+    <Content Include="Fragments\NoAnswerFragments.txt" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -125,6 +126,7 @@
     </Compile>
     <Compile Include="LuisIntents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IChatFragmentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -141,6 +143,10 @@
     <ProjectReference Include="..\..\DDDPerthBot.Services.Bindings\DDDPerthBot.Services.Bindings.csproj">
       <Project>{efa17430-fc55-4f78-bcac-f00dea5a10d3}</Project>
       <Name>DDDPerthBot.Services.Bindings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DDDPerthBot.QnAMaker\DDDPerthBot.QnAMaker.csproj">
+      <Project>{6ffe3194-ab86-4307-a409-d5027bce6ec7}</Project>
+      <Name>DDDPerthBot.QnAMaker</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

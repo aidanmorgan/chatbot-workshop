@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Autofac;
 using DDDPerth.Services.Bindings;
 using DDDPerthBot.Bot.DependencyInjection;
+using DDDPerthBot.Bot.Services;
+using DDDPerthBot.QnAMaker;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Builder.Internals.Fibers;
@@ -21,10 +23,14 @@ namespace DDDPerthBot.Bot.Dialogs
     public class ConferenceRootDialog : LuisDialog<object>
     {
         private readonly IBotApiFactory _apiFactory;
+        private readonly IQnAMakerService _qnAMakerService;
+        private readonly IChatFragmentService _chatFragmentService;
 
-        public ConferenceRootDialog(IBotApiFactory apiFactory)
+        public ConferenceRootDialog(IBotApiFactory apiFactory, IQnAMakerService qnAMakerService, IChatFragmentService chatFragmentService)
         {
             this._apiFactory = apiFactory;
+            this._qnAMakerService = qnAMakerService;
+            this._chatFragmentService = chatFragmentService;
         }
 
         public ConferenceRootDialog(IBotApiFactory apiFactory, ILuisService service)
@@ -37,8 +43,19 @@ namespace DDDPerthBot.Bot.Dialogs
         [LuisIntent("")]
         public async Task None(IDialogContext context, LuisResult result)
         {
-            string message = $"Sorry I did not understand your request.)";
-            await context.PostAsync(message);
+            // we have no response from Luis, so lets try QnA maker before spitting the dummy
+            var response = await _qnAMakerService.ExecuteAsync(result.Query);
+
+            if (response != null && response.Score > 50)
+            {
+                await context.PostAsync(response.Answer);
+            }
+            else
+            {
+
+                await context.PostAsync(_chatFragmentService.RandomNoAnswerFragment());
+            }
+
             context.Wait(MessageReceived);
         }
 
@@ -73,16 +90,16 @@ namespace DDDPerthBot.Bot.Dialogs
             }
         }
 
-        private Task ResumeAfterSessionDetails(IDialogContext context, IAwaitable<IMessageActivity> result)
+        private async Task ResumeAfterSessionDetails(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            context.Done<object>(null);
-            return Task.CompletedTask;
+            await result;
+//            context.Done<object>(null);
         }
 
-        private Task ResumeAfterSpeakerDetails(IDialogContext context, IAwaitable<IMessageActivity> result)
+        private async Task ResumeAfterSpeakerDetails(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            context.Done<object>(null);
-            return Task.CompletedTask;
+            await result;
+//            context.Done<object>(null);
         }
 
 

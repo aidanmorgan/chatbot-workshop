@@ -24,7 +24,8 @@ namespace DDDPerthBot.Bot.Dialogs
 
         public Task StartAsync(IDialogContext context)
         {
-            
+            context.Done<IMessageActivity>(null);
+            return Task.CompletedTask;
         }
     }
 }
