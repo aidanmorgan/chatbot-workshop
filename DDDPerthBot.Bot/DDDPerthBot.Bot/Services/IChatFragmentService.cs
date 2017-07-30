@@ -27,11 +27,7 @@ namespace DDDPerthBot.Bot.Services
             {
                 if (_noAnswerFragments == null)
                 {
-                    _noAnswerFragments = ReadFile(NoAnswerFragmentFile)
-                        .Split('\n')
-                        .Where(x => !string.IsNullOrEmpty(x))
-                        .Select(x => x.Trim())
-                        .ToList();
+                    _noAnswerFragments = LoadFragments(NoAnswerFragmentFile);
                 }
 
                 return _noAnswerFragments;
@@ -48,6 +44,17 @@ namespace DDDPerthBot.Bot.Services
         public string RandomNoAnswerFragment()
         {
             return NoAnswerFragments[_random.Next(0, NoAnswerFragments.Count - 1)];
+        }
+
+
+
+        private static List<string> LoadFragments(string file)
+        {
+            return ReadFile(file)
+                .Split('\n')
+                .Where(x => !string.IsNullOrEmpty(x))
+                .Select(x => x.Trim())
+                .ToList();
         }
 
         private static string ReadFile(string filename)

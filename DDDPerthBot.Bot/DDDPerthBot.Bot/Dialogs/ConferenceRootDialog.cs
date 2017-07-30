@@ -93,13 +93,13 @@ namespace DDDPerthBot.Bot.Dialogs
         private async Task ResumeAfterSessionDetails(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             await result;
-//            context.Done<object>(null);
+            context.Wait(MessageReceived);
         }
 
         private async Task ResumeAfterSpeakerDetails(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             await result;
-//            context.Done<object>(null);
+            context.Wait(MessageReceived);
         }
 
 
