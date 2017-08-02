@@ -1,11 +1,4 @@
-﻿using System.Reflection;
-using System.Web.Http;
-using Autofac;
-using Autofac.Integration.WebApi;
-using DDDPerthBot.Bot.DependencyInjection;
-using Microsoft.Bot.Builder.Dialogs.Internals;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using System.Web.Http;
 
 namespace DDDPerthBot.Bot
 {
@@ -13,7 +6,6 @@ namespace DDDPerthBot.Bot
     {
         public static void Register(HttpConfiguration config)
         {
-
         }
     }
 }

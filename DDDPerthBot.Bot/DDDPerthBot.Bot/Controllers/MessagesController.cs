@@ -2,9 +2,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Autofac;
-using DDDPerth.Services.Bindings;
 using DDDPerthBot.Bot.DependencyInjection;
+using DDDPerthBot.Bot.Dialogs;
 using DDDPerthBot.Bot.Services;
 using DDDPerthBot.QnAMaker;
 using Microsoft.Bot.Builder.Dialogs;
@@ -15,11 +14,12 @@ namespace DDDPerthBot.Bot.Controllers
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        private readonly IBotApiFactory _scope;
-        private readonly IQnAMakerService _qnaMakerService;
         private readonly IChatFragmentService _chatFragmentService;
+        private readonly IQnAMakerService _qnaMakerService;
+        private readonly IBotApiFactory _scope;
 
-        public MessagesController(IBotApiFactory scope, IQnAMakerService qnaMakerService, IChatFragmentService chatFragmentService)
+        public MessagesController(IBotApiFactory scope, IQnAMakerService qnaMakerService,
+            IChatFragmentService chatFragmentService)
         {
             _scope = scope;
             _qnaMakerService = qnaMakerService;
@@ -27,19 +27,16 @@ namespace DDDPerthBot.Bot.Controllers
         }
 
         /// <summary>
-        /// POST: api/Messages
-        /// Receive a message from a user and reply to it
+        ///     POST: api/Messages
+        ///     Receive a message from a user and reply to it
         /// </summary>
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+        public async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)
-            {
-                await Conversation.SendAsync(activity, () => new Dialogs.ConferenceRootDialog(_scope, _qnaMakerService, _chatFragmentService));
-            }
+                await Conversation.SendAsync(activity,
+                    () => new ConferenceRootDialog(_scope, _qnaMakerService, _chatFragmentService));
             else
-            {
                 HandleSystemMessage(activity);
-            }
 
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
@@ -69,7 +66,6 @@ namespace DDDPerthBot.Bot.Controllers
             }
             else if (message.Type == ActivityTypes.Ping)
             {
-
             }
 
             return null;

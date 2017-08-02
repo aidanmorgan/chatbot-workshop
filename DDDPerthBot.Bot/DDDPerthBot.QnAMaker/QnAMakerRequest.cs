@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace DDDPerthBot.QnAMaker
 {
     public class QnAMakerRequest
     {
-        [JsonProperty(PropertyName = "question")]
-        public string Question { get; private set; }
-
-        [JsonProperty(PropertyName = "top")]
-        public int Top { get; private set; } = 1;
-
         public QnAMakerRequest(string question)
         {
             Question = question;
@@ -25,5 +14,11 @@ namespace DDDPerthBot.QnAMaker
             Question = question;
             Top = top;
         }
+
+        [JsonProperty(PropertyName = "question")]
+        public string Question { get; private set; }
+
+        [JsonProperty(PropertyName = "top")]
+        public int Top { get; private set; } = 1;
     }
 }

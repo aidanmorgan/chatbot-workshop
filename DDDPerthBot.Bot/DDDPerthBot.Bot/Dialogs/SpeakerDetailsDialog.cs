@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
-using Autofac;
 using DDDPerth.Services.Bindings;
 using DDDPerth.Services.Bindings.Models;
 using DDDPerthBot.Bot.DependencyInjection;
@@ -22,8 +19,8 @@ namespace DDDPerthBot.Bot.Dialogs
 
         public SpeakerDetailsDialog(IBotApiFactory api, string searchTerm)
         {
-            this._apiFactory = api;
-            this._searchTerm = searchTerm;
+            _apiFactory = api;
+            _searchTerm = searchTerm;
         }
 
         public async Task StartAsync(IDialogContext context)
@@ -36,13 +33,13 @@ namespace DDDPerthBot.Bot.Dialogs
                 {
                     case 0:
                         await context.SayAsync("I couldn't find a Speaker with the name you're looking for.");
-                        context.Done<object>(null);
+                        context.Done<IMessageActivity>(null);
                         break;
 
                     case 1:
                         var message = context.MakeMessage();
 
-                        var herocard = new HeroCard()
+                        var herocard = new HeroCard
                         {
                             Title = details[0].Name,
                             Text = details[0].Bio
@@ -61,9 +58,10 @@ namespace DDDPerthBot.Bot.Dialogs
                         break;
                 }
             }
-            catch (HttpRequestException x)
+            catch (HttpRequestException)
             {
-                await context.PostAsync("I'm sorry, we're encountering technical difficulties. Please try again later.");
+                await context.PostAsync(
+                    "I'm sorry, we're encountering technical difficulties. Please try again later.");
                 context.Done<IMessageActivity>(null);
             }
         }
@@ -75,7 +73,7 @@ namespace DDDPerthBot.Bot.Dialogs
 
             var details = await _apiFactory.CreateApi().ApiSpeakersQGetAsync(response.Text);
 
-            var herocard = new HeroCard()
+            var herocard = new HeroCard
             {
                 Title = details[0].Name,
                 Text = details[0].Bio
@@ -85,10 +83,10 @@ namespace DDDPerthBot.Bot.Dialogs
             message.Attachments.Add(herocard.ToAttachment());
 
             await context.PostAsync(message);
-            context.Done<object>(null);
+            context.Done<IMessageActivity>(null);
         }
 
-        private IMessageActivity CreateCarousel(IDialogContext context, IList<Speaker> speakers)
+        private static IMessageActivity CreateCarousel(IDialogContext context, IList<Speaker> speakers)
         {
             var message = context.MakeMessage();
             message.Text = "Which speaker did you mean?";
@@ -97,9 +95,12 @@ namespace DDDPerthBot.Bot.Dialogs
 
             foreach (var speaker in speakers)
             {
-                var herocard = new HeroCard()
+                var herocard = new HeroCard
                 {
-                    Buttons = new List<CardAction>() { new CardAction(ActionTypes.PostBack, speaker.Name, value: speaker.Name) }
+                    Buttons = new List<CardAction>
+                    {
+                        new CardAction(ActionTypes.PostBack, speaker.Name, value: speaker.Name)
+                    }
                 };
 
                 message.Attachments.Add(herocard.ToAttachment());

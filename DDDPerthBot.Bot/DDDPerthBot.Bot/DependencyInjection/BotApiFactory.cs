@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using DDDPerth.Services.Bindings;
 
 namespace DDDPerthBot.Bot.DependencyInjection

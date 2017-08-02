@@ -1,14 +1,13 @@
 ﻿using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-using DDDPerth.Services.Bindings;
 using DDDPerthBot.Bot.DependencyInjection;
-using Microsoft.Bot.Builder.Dialogs.Internals;
 
 namespace DDDPerthBot.Bot
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -39,9 +38,9 @@ namespace DDDPerthBot.Bot
                 config.MapHttpAttributeRoutes();
 
                 config.Routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { id = RouteParameter.Optional }
+                    "DefaultApi",
+                    "api/{controller}/{id}",
+                    new {id = RouteParameter.Optional}
                 );
             });
         }
