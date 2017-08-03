@@ -9,6 +9,92 @@
   {
     "id": "aabe4056-b99d-4034-b8d8-d53ffa56a824",
     "name": "Rami Ruhayel",
-    "bio": ""
+    "bio": "Human computer scientist with an interest in mathematics, linguistics and web development. Holds a double degree with first class honors in computer science and information technology systems, and is currently completing  a part 1 qualification with the institute of actuaries."
+  },
+  
+  {
+    "id": "5f35be4a-2294-4f3b-a383-3f6409bef173",
+    "name": "Gojko Adzic",
+    "bio": "Gojko Adzic is a strategic software delivery consultant who works with ambitious teams to align software delivery with business goals, and improve the quality of their software products and processes. Gojko specialises in are agile and lean quality improvement, in particular impact mapping, agile testing, specification by example and behaviour driven development.\nGojko’s book Specification by Example won the Jolt Award for the best book of 2012. Gojko won the 2016 European Software Testing Outstanding Achievement Award. In 2011, he was voted by peers as the most influential agile testing professional, and his blog won the UK Agile Award for the best online publication in 2010.\nGojko is a frequent keynote speaker at leading software development conferences, and one of the authors of MindMup and Claudia.js."
+  },
+  
+  {
+    "id": "684ba46b-7538-4164-9009-270671fd496e",
+    "name": "Jake Ginnivan",
+    "bio": "Jake is currently working with Seven West Media on their new digital platform, before this he spent many years as a consultant for Readify with a brief 2 year sabbatical to London working in the finance industry for Adaptive Consulting. He is an active maintainer or creator of quite a few open source including GitVersion, DbUp, Shouldly, BDDfy and contributes to many more."
+  },
+
+  {
+    "id": "8692e259-27e4-4818-a32e-a849066e3222",
+    "name": "Raphael Haddad",
+    "bio": "Raph is an energetic, easily amusable, developer consultant with a focus on simplicity. He strongly believes in incremental delivery, and wishes to purge the industry of premature optimisation, guessing and complexity!"
+  },
+
+  {
+    "id": "75bc76b3-a39c-4754-b855-2df068deefe8",
+    "name": "Rob Crowley",
+    "bio": "Rob is a software consultant, developer and team lead with a passion for delivering systems that perform at scale. Rob has over 15 years of experience building distributed systems on the web stack and has read more RFCs than he cares to admit. As the Technical Lead for APIs at Bankwest, Rob works with delivery teams on transforming the bank’s technology landscape to realise its digital strategy."
+  },
+
+  {
+    "id": "02eb5c81-74f8-4cc3-8c3e-0fda16e3a91a",
+    "name": "Jasmine Quek",
+    "bio": "Jasmine is a software developer consultant working for ThoughtWorks. She's a local Perthian and likes cool front-endy things but happy working on all sorts of code (but likes devops less).\nJasmine is passionate about encouraging a workplace culture safe for diversity, having fun at work,  and delicious food."
+  },
+  {
+    "id": "47993a9f-6ab7-478a-bab2-1fa1ddcde8f7",
+    "name": "Sam Ritchie",
+    "bio": "Sam is a mobile & cloud developer who likes writing Swift and F#. He runs the software consulting company codesplice, organises the Perth iOS Developers meetup group, and occasionally speaks at conferences. For the record, he usually wears pants."
+  },
+  {
+    "id": "e6b6ed9a-3116-4cc6-ac6b-fa9b994e3868",
+    "name": "Subrata Bhattacharjee",
+    "bio": "Subrata is an Engineering Team Leader, presently working with Bankwest,  with broad experience in leading cross-functional Agile engineering teams. Actively involved in the local Testing & DevOps communities, have presented multiple times at Iqnite, TestWest & Yow West conferences across multiple cities in Australia. Also presented in international software conferences like Accelarate in Vienna, Austria.\nHe's passionate about designing, developing & testing native, web & hybrid mobile applications for iOS & Android platforms. He has experience in leading software testing teams & creating test automation frameworks for cross-platform & cross-browser testing using a wide range of technologies.\nHe has worked with some of the major investment & retail banks like Royal Bank of Scotland, Bankwest across various geographies including UK, Australia & India."
+  },
+  {
+    "id": "4a4f15c5-e6ec-453a-8672-cd6f9b4a6826",
+    "name": "Patima Tantiprasut",
+    "bio": "Patima is a Creative Director with a background in both code and design, with over 15 years’ experience in the web. By day, she leads the team over at Bam Creative, a Perth-based award-winning digital agency. Her jam is to bring people together to achieve beautiful and meaningful things.\nShe specialises in experience design, brand development and quality assurance for digital projects. In her spare time, she’s also a co-founder of @team6Q, co-organiser for @MixinConf, founder and host of @LocalhostAU, previously an Australian Web Industry Association (AWIA) board member, a newbie speaker, writer, not-so-newbie gin drinker and dog lover."
+  },
+  {
+    "id": "aa03dda9-a925-40ed-9beb-3846c1ce5679",
+    "name": "Has AlTaiar",
+    "bio": "A full-time principal consultant, a part-time researcher, a blogger, and a cyclist. Have been tinkering with mobile and web for over a decade. Enjoy working with Xamarin, and Azure."
+  },
+  {
+    "id": "78ea66f2-c47f-449f-849f-20e7e427e2a0",
+    "name": "Will Webster",
+    "bio": "Technical leader and web development expert with hands-on skills. Founder of the Perth Code Dojo, co-organiser of Agile Perth.\nExperienced at enabling modern software development practises in large organisations. Improving processes and encouraging innovation. Setting up automation, Agile training, certified Scrum Master and Kanban practitioner.\nTeam player with great product development, effective negotiation and stakeholder management skills. Business focus with strong client relationship and financial awareness.\nWeb stack development specialist. Versatile and enjoys coding a multitude of languages and platforms. Automation addict; Testing, Continuous Integration, deployment and other related DevOps practices."
+  },
+  {
+    "id": "e455e2de-1a18-4782-bd4b-2ff2e9e2322f",
+    "name": "Ben New",
+    "bio": "Ben has worked with a diverse range of technology, in a wide range of business domains, from military to finance to advertising, over a 20-year professional career.  Currently a technical lead and head of R&D at Gaia Resources, an environmental technology consultancy.  Ben is a proponent of open source software, and has been a JavaScript fanboy since before it was cool."
+  },
+  {
+    "id": "4846730c-033d-4e80-aee6-64499b2cda7f",
+    "name": "Donna Edwards",
+    "bio": "Donna has been building amazing teams for over seventeen years. Most recently she has grown Ignia from a 25 person locally-focussed development shop to one of the largest and most respected consultancies in Perth, now expanding globally through their acquisition by Insight.\nShe regularly speaks about employee engagement, talent management, recruitment and business growth, and is the Co-Chair of WAITTA Game Changers, a member of 100 Women and President of Central Communicator Toastmasters club."
+  },
+  {
+    "id": "b40fcb5b-4f09-4dc8-a7c8-ba7c9b6558e1",
+    "name": "Vivienne Conway",
+    "bio": "Dr Vivienne Conway is the Director of Web Key IT Pty Ltd which she founded in 2011.  Web Key IT has a vision to enable website access for persons with disabilities.  Web Key IT assists organisations with web-based programs and information to meet the needs of people with disabilities as well as to understand their legal requirements for website accessibility and develop the tools needed to meet the internationally-recognised website standards.\nAs well as being involved in research and conference presentations, Vivienne leads her team of accessibility professionals to provide consulting, audit and accreditation and training in all aspects of digital accessibility.  She is an ardent advocate for the effective recognition of the needs of people with disabilities and their inclusion in our digital society.  Vivienne has been involved with ACS since joining as an undergraduate and has presented at numerous ACS events.\nVivienne completed her PhD in IT (website accessibility) at Edith Cowan University and is a Certified Professional (Snr) member and WA Branch Executive member of the Australian Computer Society. She is active in W3C and the working groups, where Web Key IT is a member.  This year she was the co-General Chair of the Web for All Conference (W4A 2017) held in Perth."
+  },
+  {
+    "id": "4660659a-25be-460a-8515-0b8b4b5b35fc",
+    "name": "Ian Hughes",
+    "bio": "Ian Hughes likes code, science, travel, beer, and footy. He's a Principal Consultant with Readify during the week, primarily in Agile, DevOps/CD and Mobile; he mostly does other stuff on the weekend... mostly."
+  },
+  {
+    "id": "0db0c2fa-a11d-42fa-b16b-b591539b181d",
+    "name": "Cristian Prieto",
+    "bio": "Cristian is a software developer, he loves software, history and cats (in no particular order). He is a huge open source fan and sometimes he can be found installing Windows 95 in a virtual machine for no particular reason."
+  },
+  {
+    "id": "5e0e8f90-3d55-4ccc-89a5-5c1820d4d350",
+    "name": "Kris Howard",
+    "bio": "Kris Howard has been building websites in one form or another for over twenty years. She's been a developer, a business analyst, and a manager; and most recently wrangled engineers at Canva, one of Australia's fastest growing startups. She now heads up Developer Relations for YOW! Conferences, meeting and working with developers around the country. She's spoken at meetups and events across Australia and Asia, including TEDx Melbourne. Her Instagram account is pretty much all selfies and food."
   }
+  
 ]
