@@ -15,6 +15,7 @@ namespace DDDPerthBot.Bot.Dialogs
     [Serializable]
     public class ConferenceRootDialog : LuisDialog<object>
     {
+        private const int QnAMakerMinimumScore = 50;
         private readonly IBotApiFactory _apiFactory;
         private readonly IChatFragmentService _chatFragmentService;
         private readonly IQnAMakerService _qnAMakerService;
@@ -40,7 +41,7 @@ namespace DDDPerthBot.Bot.Dialogs
             // we have no response from Luis, so lets try QnA maker before spitting the dummy
             var response = await _qnAMakerService.ExecuteAsync(result.Query);
 
-            if (response != null && response.Score > 50)
+            if (response != null && response.Score >= QnAMakerMinimumScore)
                 await context.PostAsync(response.Answer);
             else
                 await context.PostAsync(_chatFragmentService.RandomNoAnswerFragment());
